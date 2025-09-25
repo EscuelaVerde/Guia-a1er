@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Geometría Analítica</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 25px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        .ejercicio {
+            margin-bottom: 35px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .respuesta {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            border-left: 4px solid #3498db;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .destacado {
+            background-color: #fff3cd;
+            padding: 12px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #f39c12;
+        }
+        .paso {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .formula {
+            font-family: 'Courier New', monospace;
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 3px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .conclusion {
+            background-color: #d4edda;
+            padding: 12px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #28a745;
+        }
+        .aprox {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+         footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            border-top: 3px solid #3498db;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicios de Geometría Analítica</h1>
+    
+    <div class="ejercicio">
+        <h2>1) Localización de puntos en el plano cartesiano</h2>
+        <p><strong>Puntos a localizar:</strong></p>
+        <ul>
+            <li>(5, 2)</li>
+            <li>(-7, -6)</li>
+            <li>(0, -3)</li>
+            <li>(1 + √3, 1 - √3) ≈ (2.7321, -0.7321)</li>
+            <li>(-7, 0)</li>
+        </ul>
+        <div class="respuesta">
+            <p><strong>Procedimiento:</strong> Cada par (x,y) se ubica moviendo x unidades en horizontal (derecha si x>0, izquierda si x<0) y luego y unidades en vertical (arriba si y>0, abajo si y<0).</p>
+        </div>
+    </div>
+    
+    <div class="ejercicio">
+        <h2>2) Reconocimiento de patrones en conjuntos de pares ordenados</h2>
+        <table>
+            <tr>
+                <th>Conjunto</th>
+                <th>Patrón</th>
+                <th>Regla</th>
+            </tr>
+            <tr>
+                <td>(1,1), (2,2), (3,3), (4,4), (5,5)</td>
+                <td>y aumenta 1 por cada aumento de 1 en x</td>
+                <td>y = x</td>
+            </tr>
+            <tr>
+                <td>(1,3), (2,5), (3,7), (4,9), (5,11)</td>
+                <td>y aumenta 2 por cada aumento de 1 en x</td>
+                <td>y = 2x + 1</td>
+            </tr>
+            <tr>
+                <td>(1,4), (2,8), (3,12), (4,16), (5,20)</td>
+                <td>y aumenta 4 por cada aumento de 1 en x</td>
+                <td>y = 4x</td>
+            </tr>
+            <tr>
+                <td>(-1,1), (0,0), (1,1), (2,4), (3,9), (4,16)</td>
+                <td>y es el cuadrado de x</td>
+                <td>y = x²</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="ejercicio">
+        <h2>3) Coordenadas de vértices de un cuadrado de lado 10</h2>
+        <p><strong>Caso i:</strong> Vértice en el origen y lados sobre los ejes</p>
+        <div class="respuesta">Vértices: (0,0), (10,0), (10,10), (0,10)</div>
+        
+        <p><strong>Caso ii:</strong> Centro en el origen y lados paralelos a los ejes</p>
+        <div class="respuesta">Vértices: (5,5), (5,-5), (-5,-5), (-5,5)</div>
+        
+        <p><strong>Caso iii:</strong> Diagonales sobre los ejes coordenados</p>
+        <div class="respuesta">Vértices: (5√2, 0)≈(7.07,0), (-5√2, 0)≈(-7.07,0), (0, 5√2)≈(0,7.07), (0, -5√2)≈(0,-7.07)</div>
+    </div>
+    
+    <div class="ejercicio">
+        <h2>4) Circunferencia de radio 6 tangente a los ejes coordenados</h2>
+        <div class="respuesta">
+            <p><strong>Centros y puntos de tangencia:</strong></p>
+            <ul>
+                <li>Centro (6,6): puntos de tangencia (6,0) y (0,6)</li>
+                <li>Centro (-6,6): puntos de tangencia (-6,0) y (0,6)</li>
+                <li>Centro (6,-6): puntos de tangencia (6,0) y (0,-6)</li>
+                <li>Centro (-6,-6): puntos de tangencia (-6,0) y (0,-6)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="ejercicio">
+        <h2>5) Distancias entre puntos</h2>
+        <p><strong>a) Entre (3,7) y (17,-5):</strong></p>
+        <div class="respuesta">
+            <p>Δx = 14, Δy = -12</p>
+            <p>d = √(14² + (-12)²) = √(196 + 144) = √340 = 2√85 ≈ <span class="aprox">18.4391</span></p>
+        </div>
+        
+        <p><strong>b) Entre (0,-9) y (9,0):</strong></p>
+        <div class="respuesta">
+            <p>Δx = 9, Δy = 9</p>
+            <p>d = √(9² + 9²) = √(81 + 81) = √162 = 9√2 ≈ <span class="aprox">12.7279</span></p>
+        </div>
+    </div>
+    
+    <div class="ejercicio">
+        <h2>6) Cuadrilátero con vértices A(1,3), B(7,3), C(9,8), D(3,6)</h2>
+        
+        <p><strong>¿Es paralelogramo?</strong></p>
+        <div class="respuesta">
+            <p><strong>Prueba 1 (puntos medios):</strong></p>
+            <p>Punto medio de AC = ((1+9)/2, (3+8)/2) = (5, 5.5)</p>
+            <p>Punto medio de BD = ((7+3)/2, (3+6)/2) = (5, 4.5)</p>
+            <p class="destacado">No coinciden → No es paralelogramo</p>
+            
+            <p><strong>Prueba 2 (pendientes):</strong></p>
+            <p>m(AB) = (3-3)/(7-1) = 0</p>
+            <p>m(BC) = (8-3)/(9-7) = 5/2 = 2.5</p>
+            <p>m(CD) = (6-8)/(3-9) = (-2)/(-6) = 1/3</p>
+            <p>m(DA) = (3-6)/(1-3) = (-3)/(-2) = 1.5</p>
+            <p class="destacado">Ningún par de pendientes opuestas coincide → No es paralelogramo</p>
+        </div>
+        
+        <p><strong>Perímetro:</strong></p>
+        <div class="respuesta">
+            <p>AB = √((7-1)² + (3-3)²) = √36 = 6</p>
+            <p>BC = √((9-7)² + (8-3)²) = √(4+25) = √29 ≈ <span class="aprox">5.3852</span></p>
+            <p>CD = √((3-9)² + (6-8)²) = √(36+4) = √40 = 2√10 ≈ <span class="aprox">6.3246</span></p>
+            <p>DA = √((1-3)² + (3-6)²) = √(4+9) = √13 ≈ <span class="aprox">3.6056</span></p>
+            <p class="destacado">Perímetro = 6 + √29 + 2√10 + √13 ≈ <span class="aprox">21.3153</span></p>
+        </div>
+    </div>
+    
+    <div class="ejercicio">
+        <h2>7) Triángulo con vértices A(1,1), B(0,5), C(-3,0)</h2>
+        
+        <p><strong>Comprobación de que es rectángulo:</strong></p>
+        
+        <div class="respuesta">
+            <p><strong>Método A (Teorema de Pitágoras):</strong></p>
+            <p>AB² = (0-1)² + (5-1)² = 1 + 16 = 17</p>
+            <p>AC² = (-3-1)² + (0-1)² = 16 + 1 = 17</p>
+            <p>BC² = (-3-0)² + (0-5)² = 9 + 25 = 34</p>
+            <p class="destacado">AB² + AC² = 17 + 17 = 34 = BC² → Es rectángulo</p>
+            
+            <p><strong>Método B (Pendientes):</strong></p>
+            <p>m(AB) = (5-1)/(0-1) = 4/(-1) = -4</p>
+            <p>m(AC) = (0-1)/(-3-1) = (-1)/(-4) = 1/4</p>
+            <p class="destacado">m(AB) × m(AC) = -4 × 1/4 = -1 → Rectas perpendiculares</p>
+            
+            <p class="conclusion"><strong>Conclusión:</strong> El triángulo es rectángulo con ángulo recto en A(1,1)</p>
+        </div>
+    </div>
+    
+    <div class="ejercicio">
+        <h2>8) Triángulo con vértices A(-1,-6), B(-6,4), C(5,2)</h2>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Fórmula de distancia entre dos puntos:</strong></p>
+            <p class="formula">d = √[(x₂ - x₁)² + (y₂ - y₁)²]</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Cálculo de los lados del triángulo:</strong></p>
+            
+            <p><strong>Lado AB:</strong></p>
+            <p class="formula">AB = √[(-6 - (-1))² + (4 - (-6))²]</p>
+            <p class="formula">AB = √[(-6 + 1)² + (4 + 6)²]</p>
+            <p class="formula">AB = √[(-5)² + (10)²] = √[25 + 100] = √125 = 5√5 ≈ <span class="aprox">11.18</span></p>
+            
+            <p><strong>Lado BC:</strong></p>
+            <p class="formula">BC = √[(5 - (-6))² + (2 - 4)²]</p>
+            <p class="formula">BC = √[(11)² + (-2)²] = √[121 + 4] = √125 = 5√5 ≈ <span class="aprox">11.18</span></p>
+            
+            <p><strong>Lado AC:</strong></p>
+            <p class="formula">AC = √[(5 - (-1))² + (2 - (-6))²]</p>
+            <p class="formula">AC = √[(6)² + (8)²] = √[36 + 64] = √100 = 10</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Cálculo del perímetro:</strong></p>
+            <p class="formula">P = AB + BC + AC</p>
+            <p class="formula">P = (5√5) + (5√5) + 10 = 10√5 + 10</p>
+            <p class="formula">P ≈ 10(2.236) + 10 = 22.36 + 10 = <span class="aprox">32.36</span></p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 4. ¿Es isósceles?</strong></p>
+            <p>Un triángulo es isósceles si tiene al menos dos lados iguales.</p>
+            <p>En este caso: AB = BC = 5√5</p>
+            <p class="conclusion">✅ El triángulo SÍ es isósceles porque AB = BC</p>
+        </div>
+        
+        <div class="respuesta">
+            <p><strong>Respuesta final:</strong></p>
+            <p>Perímetro: P = 10√5 + 10 ≈ <span class="aprox">32.36</span></p>
+            <p>El triángulo es isósceles porque AB = BC</p>
+        </div>
+    </div>
+    <div class="ejercicio">
+    <h2>División de un segmento en una razón dada</h2>
+    
+    <div class="ejercicio">
+        <h3>1) Hallar las coordenadas del punto Q que divide al segmento Q1(-2,3) y Q2(3,-2) en razón r=2/5</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Fórmula de división interna:</strong></p>
+            <p class="formula">P(x,y) = ((x₁ + r·x₂)/(1 + r), (y₁ + r·y₂)/(1 + r))</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Cálculo de la coordenada x:</strong></p>
+            <p class="formula">x = (-2 + (2/5)·3) / (1 + 2/5)</p>
+            <p class="formula">x = (-2 + 6/5) / (7/5)</p>
+            <p class="formula">x = (-10/5 + 6/5) / (7/5)</p>
+            <p class="formula">x = (-4/5) / (7/5) = -4/7</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Cálculo de la coordenada y:</strong></p>
+            <p class="formula">y = (3 + (2/5)·(-2)) / (1 + 2/5)</p>
+            <p class="formula">y = (3 - 4/5) / (7/5)</p>
+            <p class="formula">y = (15/5 - 4/5) / (7/5)</p>
+            <p class="formula">y = (11/5) / (7/5) = 11/7</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> Q(-4/7, 11/7)</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>2) Hallar las coordenadas del punto P que divide al segmento A(8,-4) y B(2,4) en razón r=-2</h3>
+        
+        <div class="advertencia">
+            <p>⚠️ Atención: r < 0 indica división externa</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Fórmula de división (aplica tanto para interna como externa):</strong></p>
+            <p class="formula">P(x,y) = ((x₁ + r·x₂)/(1 + r), (y₁ + r·y₂)/(1 + r))</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Cálculo de la coordenada x:</strong></p>
+            <p class="formula">x = (8 + (-2)·2) / (1 + (-2))</p>
+            <p class="formula">x = (8 - 4) / (-1)</p>
+            <p class="formula">x = 4 / (-1) = -4</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Cálculo de la coordenada y:</strong></p>
+            <p class="formula">y = (-4 + (-2)·4) / (1 + (-2))</p>
+            <p class="formula">y = (-4 - 8) / (-1)</p>
+            <p class="formula">y = (-12) / (-1) = 12</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> P(-4, 12)</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>3) Hallar el otro extremo B del segmento cuyo extremo A es (7,8) y punto medio M(4,3)</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Fórmulas del punto medio:</strong></p>
+            <p class="formula">xₘ = (x₁ + x₂)/2, yₘ = (y₁ + y₂)/2</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Cálculo de la coordenada x de B:</strong></p>
+            <p class="formula">4 = (7 + x)/2</p>
+            <p class="formula">8 = 7 + x</p>
+            <p class="formula">x = 8 - 7 = 1</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Cálculo de la coordenada y de B:</strong></p>
+            <p class="formula">3 = (8 + y)/2</p>
+            <p class="formula">6 = 8 + y</p>
+            <p class="formula">y = 6 - 8 = -2</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> B(1, -2)</p>
+        </div>
+    </div>
+</div>
+
+<div class="ejercicio">
+    <h2>Cálculo de áreas de polígonos</h2>
+    
+    <div class="ejercicio">
+        <h3>1) Triángulo con vértices A(-2,-1), B(2,2), C(5,-2)</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Fórmula del área (método de Gauss/shoelace):</strong></p>
+            <p class="formula">Área = ½ |x₁y₂ + x₂y₃ + x₃y₁ - (y₁x₂ + y₂x₃ + y₃x₁)|</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Sustitución de valores:</strong></p>
+            <p class="formula">Área = ½ |(-2)(2) + (2)(-2) + (5)(-1) - [(-1)(2) + (2)(5) + (-2)(-2)]|</p>
+            <p class="formula">Área = ½ |-4 -4 -5 - (-2 + 10 + 4)|</p>
+            <p class="formula">Área = ½ |-13 - 12| = ½ × 25 = 12.5 u²</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Cálculo del perímetro:</strong></p>
+            <p class="formula">AB = √[(2-(-2))² + (2-(-1))²] = √[4² + 3²] = √[16+9] = √25 = 5</p>
+            <p class="formula">BC = √[(5-2)² + (-2-2)²] = √[3² + (-4)²] = √[9+16] = √25 = 5</p>
+            <p class="formula">AC = √[(5-(-2))² + (-2-(-1))²] = √[7² + (-1)²] = √[49+1] = √50 = 5√2</p>
+            <p class="formula">Perímetro = 5 + 5 + 5√2 = 10 + 5√2 ≈ 17.0711 u</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> Área = 12.5 u², Perímetro = 10 + 5√2 ≈ 17.0711 u</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>2) Verificar colinealidad de A(-7,5), B(1,1), C(-3,3)</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Método del área (si área = 0, son colineales):</strong></p>
+            <p class="formula">Área = ½ |(-7)(1) + (1)(3) + (-3)(5) - [5(1) + 1(-3) + 3(-7)]|</p>
+            <p class="formula">Área = ½ |-7 + 3 -15 - (5 -3 -21)|</p>
+            <p class="formula">Área = ½ |-19 - (-19)| = ½ × 0 = 0</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Método de pendientes (verificación alternativa):</strong></p>
+            <p class="formula">m(AB) = (1-5)/(1-(-7)) = -4/8 = -1/2</p>
+            <p class="formula">m(AC) = (3-5)/(-3-(-7)) = -2/4 = -1/2</p>
+            <p>Pendientes iguales ⇒ puntos colineales</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> Los tres puntos son colineales</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>3) Áreas de polígonos por coordenadas</h3>
+        
+        <div class="paso">
+            <p><strong>a) Cuadrilátero A(2,5), B(7,1), C(3,-4), D(-2,3)</strong></p>
+            <p class="formula">Área = ½ |(2×1 + 7×(-4) + 3×3 + (-2)×5) - (5×7 + 1×3 + (-4)×(-2) + 3×2)|</p>
+            <p class="formula">Área = ½ |(2 -28 + 9 -10) - (35 + 3 + 8 + 6)|</p>
+            <p class="formula">Área = ½ |-27 - 52| = ½ × 79 = 39.5 u²</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>b) Pentágono A(-2,5), B(5,6), C(-4,-2), D(10,1), E(1,-7)</strong></p>
+            <p class="formula">Área = ½ |(-2×6 + 5×(-2) + (-4)×1 + 10×(-7) + 1×5) - (5×5 + 6×(-4) + (-2)×10 + 1×1 + (-7)×(-2))|</p>
+            <p class="formula">Área = ½ |(-12 -10 -4 -70 + 5) - (25 -24 -20 + 1 + 14)|</p>
+            <p class="formula">Área = ½ |-91 - (-4)| = ½ × 87 = 43.5 u²</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultados:</strong></p>
+            <p>a) Área del cuadrilátero = 39.5 u² = 79/2 u²</p>
+            <p>b) Área del pentágono = 43.5 u² = 87/2 u²</p>
+        </div>
+    </div>
+</div>
+<div class="ejercicio">
+    <h2>Ángulos de inclinación y pendiente de una recta</h2>
+    
+    <div class="ejercicio">
+        <h3>1) Recta que pasa por A(-3,2) y B(7,-3)</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Cálculo de la pendiente:</strong></p>
+            <p class="formula">m = (y₂ - y₁)/(x₂ - x₁) = (-3 - 2)/(7 - (-3)) = (-5)/10 = -1/2</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Cálculo del ángulo de inclinación:</strong></p>
+            <p class="formula">θ = arctan(m) = arctan(-1/2) ≈ -26.565°</p>
+            <p>En el intervalo [0°, 180°) corresponde a 180° - 26.565° = 153.435°</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> Pendiente = -1/2, Ángulo de inclinación ≈ 153.435°</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>2) Pendientes de los lados del triángulo A(2,-2), B(-1,4), C(4,5)</h3>
+        
+        <div class="paso">
+            <p><strong>Pendiente AB:</strong></p>
+            <p class="formula">m(AB) = (4 - (-2))/(-1 - 2) = 6/(-3) = -2</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Pendiente BC:</strong></p>
+            <p class="formula">m(BC) = (5 - 4)/(4 - (-1)) = 1/5 = 0.2</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Pendiente AC:</strong></p>
+            <p class="formula">m(AC) = (5 - (-2))/(4 - 2) = 7/2 = 3.5</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> m(AB) = -2, m(BC) = 0.2, m(AC) = 3.5</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>3) Ángulos de inclinación para pendientes dadas</h3>
+        
+        <div class="paso">
+            <p><strong>a) m = 1:</strong></p>
+            <p class="formula">θ = arctan(1) = 45°</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>b) m = -1:</strong></p>
+            <p class="formula">θ = arctan(-1) = -45° (ó 135° en [0°, 180°))</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>c) m = √3:</strong></p>
+            <p class="formula">θ = arctan(√3) = 60°</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> a) 45°, b) 135°, c) 60°</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>4) Recta de pendiente 3 que pasa por A(3,2). Hallar y cuando x = 4</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Ecuación punto-pendiente:</strong></p>
+            <p class="formula">y - 2 = 3(x - 3) ⇒ y = 3x - 7</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Evaluar en x = 4:</strong></p>
+            <p class="formula">y = 3(4) - 7 = 12 - 7 = 5</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> B(4,5)</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>5) Paralelogramo con A(-1,4), B(1,-1), C(6,1). Si y_D = 6, hallar x_D</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Usar propiedad de paralelogramo: D = A + C - B</strong></p>
+            <p class="formula">x_D = x_A + x_C - x_B = -1 + 6 - 1 = 4</p>
+            <p class="formula">y_D = y_A + y_C - y_B = 4 + 1 - (-1) = 6</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> D(4,6), Abscisa = 4</p>
+        </div>
+    </div>
+</div>
+<div class="ejercicio">
+    <h2>Ángulos entre dos rectas</h2>
+    
+    <div class="ejercicio">
+        <h3>1) Ángulos interiores del triángulo A(-2,1), B(3,4), C(5,-2)</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Cálculo de vectores y sus normas:</strong></p>
+            <p class="formula">AB = B - A = (3-(-2), 4-1) = (5, 3)</p>
+            <p class="formula">|AB| = √(5² + 3²) = √(25 + 9) = √34 ≈ 5.831</p>
+            <p class="formula">AC = C - A = (5-(-2), -2-1) = (7, -3)</p>
+            <p class="formula">|AC| = √(7² + (-3)²) = √(49 + 9) = √58 ≈ 7.616</p>
+            <p class="formula">BC = C - B = (5-3, -2-4) = (2, -6)</p>
+            <p class="formula">|BC| = √(2² + (-6)²) = √(4 + 36) = √40 ≈ 6.325</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Cálculo del ángulo en A:</strong></p>
+            <p class="formula">cos ∠A = (AB·AC)/(|AB||AC|) = (5×7 + 3×(-3))/(√34√58)</p>
+            <p class="formula">cos ∠A = (35 - 9)/√1972 = 26/√1972 ≈ 0.5864</p>
+            <p class="formula">∠A = arccos(0.5864) ≈ 54.162°</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Cálculo del ángulo en B:</strong></p>
+            <p class="formula">cos ∠B = (BA·BC)/(|BA||BC|) = ((-5)×2 + (-3)×(-6))/(√34√40)</p>
+            <p class="formula">cos ∠B = (-10 + 18)/√1360 = 8/√1360 ≈ 0.2142</p>
+            <p class="formula">∠B = arccos(0.2142) ≈ 77.471°</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 4. Cálculo del ángulo en C:</strong></p>
+            <p class="formula">∠C = 180° - ∠A - ∠B ≈ 180 - 54.162 - 77.471 ≈ 48.367°</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> ∠A ≈ 54.162°, ∠B ≈ 77.471°, ∠C ≈ 48.367°</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>2) Demostrar que A(1,1), B(5,3), C(6,-4) forman un triángulo isósceles y hallar ángulos</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Cálculo de longitudes de lados:</strong></p>
+            <p class="formula">AB = √[(5-1)² + (3-1)²] = √[16 + 4] = √20 = 2√5 ≈ 4.472</p>
+            <p class="formula">BC = √[(6-5)² + (-4-3)²] = √[1 + 49] = √50 = 5√2 ≈ 7.071</p>
+            <p class="formula">AC = √[(6-1)² + (-4-1)²] = √[25 + 25] = √50 = 5√2 ≈ 7.071</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Verificación de isósceles:</strong></p>
+            <p>BC = AC = 5√2 ⇒ Triángulo isósceles</p>
+            <p>Los ángulos iguales son ∠A y ∠B</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Cálculo de ángulos:</strong></p>
+            <p class="formula">cos ∠C = (AC² + BC² - AB²)/(2·AC·BC) = (50 + 50 - 20)/(2×50) = 80/100 = 0.8</p>
+            <p class="formula">∠C = arccos(0.8) ≈ 36.870°</p>
+            <p class="formula">∠A = ∠B = (180° - ∠C)/2 ≈ (180 - 36.870)/2 ≈ 71.565°</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> Sí es isósceles. ∠A = ∠B ≈ 71.565°, ∠C ≈ 36.870°</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>3) Dos rectas se cortan formando 135°; m₁ = -3. Hallar m₂</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Ángulo agudo entre rectas:</strong></p>
+            <p>Ángulo dado: 135° ⇒ Ángulo agudo = 180° - 135° = 45°</p>
+            <p class="formula">tan θ = |(m₂ - m₁)/(1 + m₁m₂)| = tan 45° = 1</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Resolución de ecuaciones:</strong></p>
+            <p class="formula">Caso 1: (m₂ - m₁)/(1 + m₁m₂) = 1 ⇒ m₂ - m₁ = 1 + m₁m₂</p>
+            <p class="formula">m₂(1 - m₁) = 1 + m₁ ⇒ m₂ = (1 + m₁)/(1 - m₁)</p>
+            <p class="formula">Caso 2: (m₂ - m₁)/(1 + m₁m₂) = -1 ⇒ m₂ - m₁ = -1 - m₁m₂</p>
+            <p class="formula">m₂(1 + m₁) = m₁ - 1 ⇒ m₂ = (m₁ - 1)/(1 + m₁)</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Sustitución m₁ = -3:</strong></p>
+            <p class="formula">Caso 1: m₂ = (1 + (-3))/(1 - (-3)) = (-2)/4 = -1/2</p>
+            <p class="formula">Caso 2: m₂ = (-3 - 1)/(1 + (-3)) = (-4)/(-2) = 2</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> m₂ = 2 o m₂ = -1/2</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>4) Rectas que forman 45°. Recta inicial por A(-2,1) y B(9,7). Recta final por D con x_D = -2. Hallar y_D</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Pendiente de recta inicial:</strong></p>
+            <p class="formula">m₁ = (7 - 1)/(9 - (-2)) = 6/11</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Pendientes posibles de recta final:</strong></p>
+            <p class="formula">m₂ = (1 + m₁)/(1 - m₁) = (1 + 6/11)/(1 - 6/11) = (17/11)/(5/11) = 17/5</p>
+            <p class="formula">m₂ = (m₁ - 1)/(1 + m₁) = (6/11 - 1)/(1 + 6/11) = (-5/11)/(17/11) = -5/17</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Cálculo de y_D (asumiendo intersección en B):</strong></p>
+            <p class="formula">Para m₂ = 17/5: y_D = 7 + (17/5)(-2 - 9) = 7 + (17/5)(-11) = 7 - 187/5 = -152/5 = -30.4</p>
+            <p class="formula">Para m₂ = -5/17: y_D = 7 + (-5/17)(-2 - 9) = 7 + (-5/17)(-11) = 7 + 55/17 = 174/17 ≈ 10.235</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> y_D = -152/5 = -30.4 o y_D = 174/17 ≈ 10.235</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>5) Ángulo formado por rectas AB (A(2,2), B(-5,6)) y CD (C(3,-2), D(8,5))</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Pendientes de las rectas:</strong></p>
+            <p class="formula">m₁ (AB) = (6 - 2)/(-5 - 2) = 4/(-7) = -4/7 ≈ -0.5714</p>
+            <p class="formula">m₂ (CD) = (5 - (-2))/(8 - 3) = 7/5 = 1.4</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Fórmula del ángulo entre rectas:</strong></p>
+            <p class="formula">tan θ = |(m₂ - m₁)/(1 + m₁m₂)| = |(1.4 - (-4/7))/(1 + (-4/7)(1.4))|</p>
+            <p class="formula">tan θ = |(1.4 + 0.5714)/(1 - 0.8)| = |1.9714/0.2| = 9.857</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Cálculo del ángulo:</strong></p>
+            <p class="formula">θ = arctan(9.857) ≈ 84.207°</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> Ángulo entre rectas ≈ 84.207°</p>
+        </div>
+    </div>
+</div>
+<div class="ejercicio">
+    <h2>Condición de paralelismo y perpendicularidad</h2>
+    
+    <div class="ejercicio">
+        <h3>1) Demostrar que la recta por (-4,3) y (6,-1) es perpendicular a la recta por (2,4) y (-2,-6)</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Pendiente de la primera recta:</strong></p>
+            <p class="formula">m₁ = (-1 - 3)/(6 - (-4)) = (-4)/10 = -2/5</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Pendiente de la segunda recta:</strong></p>
+            <p class="formula">m₂ = (-6 - 4)/(-2 - 2) = (-10)/(-4) = 5/2</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Verificación de perpendicularidad:</strong></p>
+            <p class="formula">m₁ × m₂ = (-2/5) × (5/2) = -10/10 = -1</p>
+            <p>Como m₁ × m₂ = -1, las rectas son perpendiculares</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> Las rectas son perpendiculares</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>2) Demostrar que el triángulo con vértices (6,7), (3,-4), (-1,0) es rectángulo</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Cálculo de pendientes de los lados:</strong></p>
+            <p class="formula">m(AB) = (-4 - 7)/(3 - 6) = (-11)/(-3) = 11/3</p>
+            <p class="formula">m(BC) = (0 - (-4))/(-1 - 3) = 4/(-4) = -1</p>
+            <p class="formula">m(AC) = (0 - 7)/(-1 - 6) = (-7)/(-7) = 1</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Verificación de perpendicularidad:</strong></p>
+            <p class="formula">m(AB) × m(BC) = (11/3) × (-1) = -11/3 ≠ -1</p>
+            <p class="formula">m(AB) × m(AC) = (11/3) × 1 = 11/3 ≠ -1</p>
+            <p class="formula">m(BC) × m(AC) = (-1) × 1 = -1 ✓</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> Los lados BC y AC son perpendiculares, por lo tanto el triángulo es rectángulo en C(-1,0)</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>3) Pendiente de una recta perpendicular a la que pasa por (3,-2) y (-3,-1)</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Pendiente de la recta dada:</strong></p>
+            <p class="formula">m = (-1 - (-2))/(-3 - 3) = (1)/(-6) = -1/6</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Pendiente de la recta perpendicular:</strong></p>
+            <p class="formula">m⊥ = -1/m = -1/(-1/6) = 6</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> La pendiente de la recta perpendicular es 6</p>
+        </div>
+    </div>
+</div>
+<div class="ejercicio">
+    <h2>Rectas determinadas por dos de sus puntos</h2>
+    
+    <div class="ejercicio">
+        <h3>2) Recta que pasa por A(7,8) y es paralela a la recta que pasa por C(-2,2) y D(3,-4)</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Pendiente de la recta CD:</strong></p>
+            <p class="formula">m_CD = (-4 - 2)/(3 - (-2)) = (-6)/5 = -6/5</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Pendiente de la recta paralela:</strong></p>
+            <p>Rectas paralelas tienen la misma pendiente:</p>
+            <p class="formula">m_∥ = m_CD = -6/5</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Ecuación de la recta que pasa por A(7,8):</strong></p>
+            <p class="formula">y - y_A = m(x - x_A) ⇒ y - 8 = -6/5(x - 7)</p>
+            <p class="formula">y - 8 = -6/5x + 42/5</p>
+            <p class="formula">y = -6/5x + 42/5 + 8</p>
+            <p class="formula">y = -6/5x + 42/5 + 40/5 = -6/5x + 82/5</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> y = -6/5x + 82/5</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>3) Demostrar que los puntos A(-5,2), B(1,4), C(4,5) son colineales y hallar la ecuación de la recta</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Pendiente AB:</strong></p>
+            <p class="formula">m_AB = (4 - 2)/(1 - (-5)) = 2/6 = 1/3</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Pendiente AC:</strong></p>
+            <p class="formula">m_AC = (5 - 2)/(4 - (-5)) = 3/9 = 1/3</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Pendiente BC:</strong></p>
+            <p class="formula">m_BC = (5 - 4)/(4 - 1) = 1/3</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 4. Verificación de colinealidad:</strong></p>
+            <p>Como todas las pendientes son iguales (m = 1/3), los puntos son colineales</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 5. Ecuación de la recta:</strong></p>
+            <p class="formula">Usando A(-5,2) y m = 1/3:</p>
+            <p class="formula">y - 2 = 1/3(x - (-5)) ⇒ y - 2 = 1/3(x + 5)</p>
+            <p class="formula">y - 2 = 1/3x + 5/3</p>
+            <p class="formula">y = 1/3x + 5/3 + 2 = 1/3x + 5/3 + 6/3 = 1/3x + 11/3</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> Los puntos son colineales. Ecuación de la recta: y = 1/3x + 11/3</p>
+        </div>
+    </div>
+</div>
+<div class="ejercicio">
+    <h2>Rectas determinadas por las dos intersecciones de los ejes de coordenadas</h2>
+    
+    <div class="ejercicio">
+        <h3>1) Hallar la ecuación de una recta con segmentos sobre los ejes x=3 y y=-5</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Forma intercepto:</strong></p>
+            <p class="formula">x/a + y/b = 1</p>
+            <p class="formula">x/3 + y/(-5) = 1 ⇒ x/3 - y/5 = 1</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Multiplicar por 15 para eliminar denominadores:</strong></p>
+            <p class="formula">15(x/3 - y/5) = 15 ⇒ 5x - 3y = 15</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Forma general:</strong></p>
+            <p class="formula">5x - 3y - 15 = 0</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> 5x - 3y - 15 = 0</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>2) Hallar pendiente e intersecciones de la recta 7x - 9y + 2 = 0</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Pendiente (convertir a forma y = mx + b):</strong></p>
+            <p class="formula">7x - 9y + 2 = 0 ⇒ -9y = -7x - 2</p>
+            <p class="formula">y = (7/9)x + 2/9</p>
+            <p class="formula">m = 7/9</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Intersección con eje x (y = 0):</strong></p>
+            <p class="formula">7x - 9(0) + 2 = 0 ⇒ 7x + 2 = 0 ⇒ x = -2/7</p>
+            <p>Punto: (-2/7, 0)</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Intersección con eje y (x = 0):</strong></p>
+            <p class="formula">7(0) - 9y + 2 = 0 ⇒ -9y + 2 = 0 ⇒ y = 2/9</p>
+            <p>Punto: (0, 2/9)</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> Pendiente = 7/9, Intersecciones: (-2/7, 0) y (0, 2/9)</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>3) Recta que pasa por A(2,3) y es perpendicular a 2x - 7y + 2 = 0</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Pendiente de la recta dada:</strong></p>
+            <p class="formula">2x - 7y + 2 = 0 ⇒ -7y = -2x - 2 ⇒ y = (2/7)x + 2/7</p>
+            <p class="formula">m₁ = 2/7</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Pendiente de la perpendicular:</strong></p>
+            <p class="formula">m⊥ = -1/m₁ = -1/(2/7) = -7/2</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Ecuación punto-pendiente:</strong></p>
+            <p class="formula">y - 3 = -7/2(x - 2)</p>
+            <p class="formula">y - 3 = -7/2x + 7</p>
+            <p class="formula">y = -7/2x + 10</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 4. Intersecciones:</strong></p>
+            <p class="formula">Eje x (y = 0): 0 = -7/2x + 10 ⇒ 7/2x = 10 ⇒ x = 20/7</p>
+            <p class="formula">Eje y (x = 0): y = -7/2(0) + 10 = 10</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 5. Ángulo de inclinación:</strong></p>
+            <p class="formula">tan θ = m⊥ = -7/2 ≈ -3.5 ⇒ θ ≈ -74.05°</p>
+            <p>Ángulo positivo: 180° - 74.05° = 105.95°</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> y = -7/2x + 10, Intersecciones: (20/7, 0) y (0, 10), Ángulo ≈ 105.95°</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h3>4) Recta que pasa por la intersección de 2x-3y-5=0 y x+2y-13=0, y segmento sobre eje x = doble de su pendiente</h3>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Punto de intersección:</strong></p>
+            <p class="formula">Sistema: 2x - 3y - 5 = 0 y x + 2y - 13 = 0</p>
+            <p class="formula">De la segunda: x = 13 - 2y</p>
+            <p class="formula">Sustituyendo: 2(13 - 2y) - 3y - 5 = 0 ⇒ 26 - 4y - 3y - 5 = 0</p>
+            <p class="formula">21 - 7y = 0 ⇒ y = 3</p>
+            <p class="formula">x = 13 - 2(3) = 7</p>
+            <p>Punto de intersección: P(7, 3)</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Condición del problema:</strong></p>
+            <p>Segmento sobre eje x = 2 × pendiente</p>
+            <p class="formula">Para y = mx + b, intersección con eje x: x = -b/m</p>
+            <p class="formula">-b/m = 2m ⇒ b = -2m²</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. La recta pasa por P(7, 3):</strong></p>
+            <p class="formula">3 = m(7) + b = 7m - 2m²</p>
+            <p class="formula">-2m² + 7m - 3 = 0 ⇒ 2m² - 7m + 3 = 0</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 4. Resolver ecuación cuadrática:</strong></p>
+            <p class="formula">m = [7 ± √(49 - 24)]/4 = [7 ± √25]/4 = [7 ± 5]/4</p>
+            <p class="formula">m₁ = 12/4 = 3, m₂ = 2/4 = 1/2</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 5. Hallar b para cada pendiente:</strong></p>
+            <p class="formula">Para m = 3: b = -2(3)² = -18</p>
+            <p class="formula">Para m = 1/2: b = -2(1/2)² = -2(1/4) = -1/2</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> Dos rectas posibles:</p>
+            <p>y = 3x - 18</p>
+            <p>y = (1/2)x - 1/2</p>
+        </div>
+    </div>
+</div>
+<div class="ejercicio">
+    <h1>Rectas: Paralelismo, Perpendicularidad y Ángulos</h1>
+        <h2>1) Recta perpendicular a 3x+8y-47=0 que pasa por B(1/3,5)</h2>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Pendiente de la recta dada:</strong></p>
+            <p class="formula">3x+8y-47=0 ⇒ 8y = -3x+47 ⇒ y = -3/8x + 47/8</p>
+            <p class="formula">m₁ = -3/8</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Pendiente de la perpendicular:</strong></p>
+            <p class="formula">m⊥ = -1/m₁ = -1/(-3/8) = 8/3</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Ecuación punto-pendiente:</strong></p>
+            <p class="formula">y - 5 = 8/3(x - 1/3)</p>
+            <p class="formula">y - 5 = 8/3x - 8/9</p>
+            <p class="formula">y = 8/3x - 8/9 + 5</p>
+            <p class="formula">y = 8/3x + 37/9</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 4. Forma general:</strong></p>
+            <p class="formula">3y = 8x + 37 ⇒ 8x - 3y + 37 = 0</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> 8x - 3y + 37 = 0</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>2) Recta paralela a 3x+8y-47=0 que pasa por A(3,2)</h2>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Pendiente de la recta dada:</strong></p>
+            <p class="formula">m = -3/8 (misma pendiente para rectas paralelas)</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Ecuación punto-pendiente:</strong></p>
+            <p class="formula">y - 2 = -3/8(x - 3)</p>
+            <p class="formula">y - 2 = -3/8x + 9/8</p>
+            <p class="formula">y = -3/8x + 25/8</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Forma general:</strong></p>
+            <p class="formula">8y = -3x + 25 ⇒ 3x + 8y - 25 = 0</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> 3x + 8y - 25 = 0</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>3) Encontrar intersecciones y pendiente de 3x-2y-12=0</h2>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Pendiente:</strong></p>
+            <p class="formula">3x-2y-12=0 ⇒ -2y = -3x+12 ⇒ y = 3/2x - 6</p>
+            <p class="formula">m = 3/2</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Intersección con eje x (y=0):</strong></p>
+            <p class="formula">3x - 2(0) - 12 = 0 ⇒ 3x = 12 ⇒ x = 4</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Intersección con eje y (x=0):</strong></p>
+            <p class="formula">3(0) - 2y - 12 = 0 ⇒ -2y = 12 ⇒ y = -6</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> Pendiente = 3/2, Intersecciones: (4,0) y (0,-6)</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>4) Recta que pasa por P(2,3) con pendiente m=2</h2>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Ecuación punto-pendiente:</strong></p>
+            <p class="formula">y - 3 = 2(x - 2)</p>
+            <p class="formula">y - 3 = 2x - 4</p>
+            <p class="formula">y = 2x - 1</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> y = 2x - 1</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>5) Recta que pasa por A(2,1) y B(5,6)</h2>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Pendiente:</strong></p>
+            <p class="formula">m = (6-1)/(5-2) = 5/3</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Ecuación punto-pendiente:</strong></p>
+            <p class="formula">y - 1 = 5/3(x - 2)</p>
+            <p class="formula">y - 1 = 5/3x - 10/3</p>
+            <p class="formula">y = 5/3x - 7/3</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> y = 5/3x - 7/3</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>6) Tangente del ángulo formado por las rectas: x-3y+7=0 y 3x-4y+6=0</h2>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Pendientes de las rectas:</strong></p>
+            <p class="formula">Recta 1: x-3y+7=0 ⇒ -3y = -x-7 ⇒ y = 1/3x + 7/3 ⇒ m₁ = 1/3</p>
+            <p class="formula">Recta 2: 3x-4y+6=0 ⇒ -4y = -3x-6 ⇒ y = 3/4x + 3/2 ⇒ m₂ = 3/4</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Fórmula del ángulo entre rectas:</strong></p>
+            <p class="formula">tan θ = |(m₂ - m₁)/(1 + m₁m₂)|</p>
+            <p class="formula">tan θ = |(3/4 - 1/3)/(1 + (1/3)(3/4))| = |(9/12 - 4/12)/(1 + 1/4)|</p>
+            <p class="formula">tan θ = |(5/12)/(5/4)| = (5/12) × (4/5) = 4/12 = 1/3</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> tan θ = 1/3</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>7) Mediatriz del segmento que une A(-3,2) y B(1,6)</h2>
+        
+        <div class="paso">
+            <p><strong>Paso 1. Punto medio:</strong></p>
+            <p class="formula">M = ((-3+1)/2, (2+6)/2) = (-1,4)</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2. Pendiente del segmento AB:</strong></p>
+            <p class="formula">m_AB = (6-2)/(1-(-3)) = 4/4 = 1</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3. Pendiente de la mediatriz (perpendicular):</strong></p>
+            <p class="formula">m⊥ = -1/m_AB = -1</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 4. Ecuación de la mediatriz:</strong></p>
+            <p class="formula">y - 4 = -1(x + 1)</p>
+            <p class="formula">y - 4 = -x - 1</p>
+            <p class="formula">y = -x + 3</p>
+        </div>
+        
+        <div class="respuesta">
+            <p class="conclusion"><strong>Resultado:</strong> y = -x + 3</p>
+        </div>
+    </div>
+      <div class="ejercicio">
+        <h2> Distancia de un punto a una recta</h2>
+        <p><strong> 1.Calcular la distancia de la recta 3x - 4y + 6 = 0 al punto A(7, -3)</strong></p>
+        
+        <div class="paso">
+            <p><strong>Fórmula de distancia de un punto a una recta Ax + By + C = 0:</strong></p>
+            <p class="formula">d = |Ax₀ + By₀ + C| / √(A² + B²)</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 1:</strong> Identificar los valores:</p>
+            <p>A = 3, B = -4, C = 6, x₀ = 7, y₀ = -3</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2:</strong> Sustituir en la fórmula:</p>
+            <p class="formula">d = |3(7) - 4(-3) + 6| / √(3² + (-4)²)</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3:</strong> Calcular el numerador:</p>
+            <p>3(7) = 21, -4(-3) = 12, 21 + 12 + 6 = 39</p>
+            <p>|39| = 39</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 4:</strong> Calcular el denominador:</p>
+            <p>√(3² + (-4)²) = √(9 + 16) = √25 = 5</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 5:</strong> Calcular la distancia:</p>
+            <p class="formula">d = 39 / 5 = <span class="aprox">7.8</span></p>
+        </div>
+        
+        <div class="conclusion">
+            <p>✅ <strong>Distancia del punto a la recta:</strong> d = 7.8 unidades</p>
+        </div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>2) Distancia entre rectas paralelas</h2>
+        <p><strong>Calcular la distancia entre las rectas paralelas:</strong></p>
+        <p>3x - 4y + 8 = 0 y 6x - 8y + 9 = 0</p>
+        
+        <div class="paso">
+            <p><strong>Paso 1:</strong> Verificar que son paralelas y poner en la misma forma:</p>
+            <p>Dividimos la segunda ecuación entre 2 para que los coeficientes de x e y coincidan:</p>
+            <p class="formula">6x - 8y + 9 = 0 ⇒ 3x - 4y + 9/2 = 0</p>
+            <p>Ahora tenemos:</p>
+            <p>L₁: 3x - 4y + 8 = 0</p>
+            <p>L₂: 3x - 4y + 4.5 = 0</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2:</strong> Fórmula de distancia entre rectas paralelas Ax + By + C₁ = 0 y Ax + By + C₂ = 0:</p>
+            <p class="formula">d = |C₂ - C₁| / √(A² + B²)</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 3:</strong> Sustituir valores:</p>
+            <p>A = 3, B = -4, C₁ = 8, C₂ = 4.5</p>
+            <p class="formula">d = |4.5 - 8| / √(3² + (-4)²)</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 4:</strong> Calcular:</p>
+            <p>Numerador: |4.5 - 8| = |-3.5| = 3.5</p>
+            <p>Denominador: √(9 + 16) = √25 = 5</p>
+            <p class="formula">d = 3.5 / 5 = <span class="aprox">0.7</span></p>
+        </div>
+        
+        <div class="conclusion">
+            <p>✅ <strong>Distancia entre las rectas paralelas:</strong> d = 0.7 unidades</p>
+        </div>
+    </div>
+    <div class="ejercicio">
+        <h2> La ecuación de la recta como modelo matemático</h2>
+        <p><strong>Problema:</strong> El valor de una computadora disminuye con el tiempo. Se sabe que a los 10 años de uso vale $23,000 y a los 6 años de uso vale $41,400.</p>
+        
+        <div class="destacado">
+            <p><strong>a) Encontrar la ecuación particular y = mx + b</strong></p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 1:</strong> Calcular la pendiente m:</p>
+            <p class="formula">m = (y₂ - y₁) / (x₂ - x₁) = (41400 - 23000) / (6 - 10)</p>
+            <p class="formula">m = 18400 / (-4) = -4600</p>
+            <p>✅ Pendiente: m = -4600 (representa la depreciación anual)</p>
+        </div>
+        
+        <div class="paso">
+            <p><strong>Paso 2:</strong> Hallar b usando el punto (10, 23000):</p>
+            <p class="formula">y = mx + b ⇒ 23000 = -4600(10) + b</p>
+            <p class="formula">23000 = -46000 + b ⇒ b = 23000 + 46000 = 69000</p>
+            <p>✅ Ecuación particular: <strong>y = -4600x + 69000</strong></p>
+        </div>
+        
+        <div class="destacado">
+            <p><strong>b) Valor cuando era nuevo (x = 0)</strong></p>
+        </div>
+        <div class="paso">
+            <p class="formula">y = -4600(0) + 69000 = 69000</p>
+            <p>✅ El valor nuevo de la computadora era <strong>$69,000</strong>.</p>
+        </div>
+        
+        <div class="destacado">
+            <p><strong>c) Depreciación por año</strong></p>
+        </div>
+        <div class="paso">
+            <p>La pendiente m = -4600 indica que la computadora pierde <strong>$4,600</strong> por año.</p>
+        </div>
+        
+        <div class="destacado">
+            <p><strong>d) Valor después de 12 años (x = 12)</strong></p>
+        </div>
+        <div class="paso">
+            <p class="formula">y = -4600(12) + 69000 = -55200 + 69000 = 13800</p>
+            <p>✅ Valor después de 12 años: <strong>$13,800</strong></p>
+        </div>
+        
+        <div class="destacado">
+            <p><strong>e) ¿Cuántos años cuando el valor sea $4,600?</strong></p>
+        </div>
+        <div class="paso">
+            <p class="formula">4600 = -4600x + 69000 ⇒ -4600x = 4600 - 69000 = -64400</p>
+            <p class="formula">x = (-64400) / (-4600) = 14</p>
+            <p>✅ Se vendería a los <strong>14 años</strong> de uso.</p>
+        </div>
+        
+        <div class="destacado">
+            <p><strong>f) ¿Después de cuántos años se deprecia totalmente (y = 0)?</strong></p>
+        </div>
+        <div class="paso">
+            <p class="formula">0 = -4600x + 69000 ⇒ -4600x = -69000 ⇒ x = 69000 / 4600 = 15</p>
+            <p>✅ La computadora se deprecia totalmente después de <strong>15 años</strong> de uso.</p>
+        </div>
+        
+        <div class="conclusion">
+            <p><strong>Resumen final:</strong></p>
+            <table>
+                <tr>
+                    <th>Inciso</th>
+                    <th>Resultado</th>
+                </tr>
+                <tr>
+                    <td>a) Ecuación</td>
+                    <td>y = -4600x + 69000</td>
+                </tr>
+                <tr>
+                    <td>b) Valor nuevo</td>
+                    <td>$69,000</td>
+                </tr>
+                <tr>
+                    <td>c) Depreciación anual</td>
+                    <td>$4,600</td>
+                </tr>
+                <tr>
+                    <td>d) Valor a 12 años</td>
+                    <td>$13,800</td>
+                </tr>
+                <tr>
+                    <td>e) Años para $4,600</td>
+                    <td>14 años</td>
+                </tr>
+                <tr>
+                    <td>f) Años para depreciación total</td>
+                    <td>15 años</td>
+                </tr>
+            </table>
+             <p>Pagina creada por Rodríguez Sánchez Jesús Emanuel© 25/09/2025 BBVA©</p>
+        </div>
+          <footer>
+        <p>Pagina creada por:Rodríguez Sánchez Jesús Emanuel © - 25/09/2025 - © BBVA en GitHub </p>
+    </footer>
+    </div>
+</body>
+</html>
+</body>
+</html>
